@@ -12,7 +12,9 @@ import { AuthService } from '../../services/auth.service';
     <aside class="sidebar">
       <div class="sidebar-header">
         <div class="logo">
-          <img src="assets/logo.png" alt="FacturePro" class="logo-img">
+          <div class="logo-box">
+            <img src="assets/logo.png" alt="FacturePro" class="logo-img">
+          </div>
           <span class="logo-text">FacturePro</span>
         </div>
       </div>
