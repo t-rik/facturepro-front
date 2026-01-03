@@ -105,6 +105,7 @@ import { AuthService } from '../../services/auth.service';
       margin-bottom: 1.5rem;
     }
 
+    .logo-box {
       width: 120px;
       height: 120px;
       display: flex;
@@ -116,6 +117,7 @@ import { AuthService } from '../../services/auth.service';
       width: 100%;
       height: 100%;
       object-fit: contain;
+    }
 
     .logo-text {
       font-size: 1.25rem;
