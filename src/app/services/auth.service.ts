@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface LoginRequest {
   username: string;
@@ -23,7 +24,7 @@ export interface AuthResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8081/api/auth';
+  private apiUrl = `${environment.apiUrl}/auth`;
   private tokenKey = 'facturepro_token';
   private userKey = 'facturepro_user';
 
