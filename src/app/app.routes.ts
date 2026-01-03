@@ -6,12 +6,18 @@ import { FactureListComponent } from './pages/factures/facture-list.component';
 import { FactureFormComponent } from './pages/factures/facture-form.component';
 import { LoginComponent } from './pages/auth/login.component';
 import { RegisterComponent } from './pages/auth/register.component';
+import { VerifyEmailComponent } from './pages/auth/verify-email.component';
+import { ForgotPasswordComponent } from './pages/auth/forgot-password.component';
+import { ResetPasswordComponent } from './pages/auth/reset-password.component';
 import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'verify-email', component: VerifyEmailComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'clients', component: ClientListComponent, canActivate: [AuthGuard] },
   { path: 'clients/new', component: ClientFormComponent, canActivate: [AuthGuard] },
@@ -21,3 +27,4 @@ export const routes: Routes = [
   { path: 'factures/:id/edit', component: FactureFormComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/login' }
 ];
+

@@ -47,14 +47,9 @@ export class AuthService {
     );
   }
 
-  register(request: RegisterRequest): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/register`, request).pipe(
-      tap(response => {
-        localStorage.setItem(this.tokenKey, response.token);
-        localStorage.setItem(this.userKey, JSON.stringify({ username: response.username, role: response.role }));
-        this.isLoggedInSubject.next(true);
-      })
-    );
+  // Register now returns a message, not AuthResponse (email verification required)
+  register(request: RegisterRequest): Observable<{message: string}> {
+    return this.http.post<{message: string}>(`${this.apiUrl}/register`, request);
   }
 
   logout(): void {

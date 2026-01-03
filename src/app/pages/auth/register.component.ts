@@ -58,13 +58,21 @@ import { AuthService } from '../../services/auth.service';
             <div *ngIf="error" class="error-message">
               {{ error }}
             </div>
+
+            <div *ngIf="successMessage" class="success-message">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <p>{{ successMessage }}</p>
+              <a routerLink="/login" class="btn btn-primary">Se connecter</a>
+            </div>
             
-            <button type="submit" class="btn btn-primary btn-block" [disabled]="loading">
+            <button *ngIf="!successMessage" type="submit" class="btn btn-primary btn-block" [disabled]="loading">
               {{ loading ? 'Création...' : "S'inscrire" }}
             </button>
           </form>
           
-          <div class="auth-footer">
+          <div class="auth-footer" *ngIf="!successMessage">
             <p>Déjà client ? <a routerLink="/login">Se connecter</a></p>
           </div>
         </div>
@@ -170,6 +178,29 @@ import { AuthService } from '../../services/auth.service';
       margin: 0;
       font-size: 0.875rem;
     }
+
+    .success-message {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid var(--success);
+      border-radius: var(--radius-md);
+    }
+
+    .success-message svg {
+      width: 48px;
+      height: 48px;
+      color: var(--success);
+      margin-bottom: 1rem;
+    }
+
+    .success-message p {
+      color: var(--success);
+      margin-bottom: 1rem;
+    }
   `]
 })
 export class RegisterComponent {
@@ -177,6 +208,7 @@ export class RegisterComponent {
   email = '';
   password = '';
   error = '';
+  successMessage = '';
   loading = false;
 
   constructor(private authService: AuthService, private router: Router) {}
@@ -186,8 +218,9 @@ export class RegisterComponent {
     this.error = '';
 
     this.authService.register({ username: this.username, email: this.email, password: this.password }).subscribe({
-      next: () => {
-        this.router.navigate(['/login']);
+      next: (res) => {
+        this.loading = false;
+        this.successMessage = res.message;
       },
       error: (err) => {
         this.loading = false;

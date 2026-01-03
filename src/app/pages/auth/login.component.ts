@@ -56,6 +56,7 @@ import { AuthService } from '../../services/auth.service';
           </form>
           
           <div class="auth-footer">
+            <p><a routerLink="/forgot-password">Mot de passe oublié ?</a></p>
             <p>Pas encore de compte ? <a routerLink="/register">S'inscrire</a></p>
           </div>
         </div>
