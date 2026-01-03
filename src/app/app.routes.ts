@@ -11,13 +11,15 @@ import { ForgotPasswordComponent } from './pages/auth/forgot-password.component'
 import { ResetPasswordComponent } from './pages/auth/reset-password.component';
 import { AuthGuard } from './guards/auth.guard';
 
+import { guestGuard } from './guards/guest.guard';
+
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent, canActivate: [guestGuard] },
+  { path: 'register', component: RegisterComponent, canActivate: [guestGuard] },
   { path: 'verify-email', component: VerifyEmailComponent },
-  { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [guestGuard] },
+  { path: 'reset-password', component: ResetPasswordComponent, canActivate: [guestGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'clients', component: ClientListComponent, canActivate: [AuthGuard] },
   { path: 'clients/new', component: ClientFormComponent, canActivate: [AuthGuard] },
