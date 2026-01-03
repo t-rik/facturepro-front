@@ -60,7 +60,7 @@ import { AuthService } from '../../services/auth.service';
             </div>
             
             <button type="submit" class="btn btn-primary btn-block" [disabled]="loading">
-              {{ loading ? 'Création...' : 'S\'inscrire' }}
+              {{ loading ? 'Création...' : "S'inscrire" }}
             </button>
           </form>
           
