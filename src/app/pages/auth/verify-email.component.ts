@@ -13,9 +13,8 @@ import { environment } from '../../../environments/environment';
       <div class="auth-card">
         <div class="auth-header">
           <div class="logo">
-            <span class="logo-icon">FP</span>
+            <img src="assets/logo.png" alt="FacturePro" class="logo-img">
             <span class="logo-text">FacturePro</span>
-          </div>
         </div>
 
         <div class="verification-content">

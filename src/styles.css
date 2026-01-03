@@ -91,6 +91,14 @@
   padding: 0;
 }
 
+/* Logo Image */
+.logo-img {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  object-fit: contain;
+}
+
 html {
   font-size: 14px; /* Slightly tighter, data-dense feel */
   height: 100%;

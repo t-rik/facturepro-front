@@ -14,9 +14,8 @@ import { environment } from '../../../environments/environment';
       <div class="auth-card">
         <div class="auth-header">
           <div class="logo">
-            <span class="logo-icon">FP</span>
+            <img src="assets/logo.png" alt="FacturePro" class="logo-img">
             <span class="logo-text">FacturePro</span>
-          </div>
           <h1>Nouveau mot de passe</h1>
           <p class="text-muted">Entrez votre nouveau mot de passe</p>
         </div>

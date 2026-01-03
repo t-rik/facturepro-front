@@ -14,7 +14,7 @@ import { AuthService } from '../../services/auth.service';
         <div class="auth-card">
           <div class="auth-header">
             <div class="logo">
-              <span class="logo-box">FP</span>
+              <img src="assets/logo.png" alt="FacturePro" class="logo-img">
               <span class="logo-text">FacturePro</span>
             </div>
             <h1>Créer un compte</h1>
