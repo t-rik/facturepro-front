@@ -105,18 +105,17 @@ import { AuthService } from '../../services/auth.service';
       margin-bottom: 1.5rem;
     }
 
-    .logo-box {
-      width: 36px;
-      height: 36px;
-      background: var(--primary-600);
-      color: white;
-      font-weight: 700;
-      border-radius: var(--radius-md);
+      width: 120px;
+      height: 120px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1rem;
     }
+
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
 
     .logo-text {
       font-size: 1.25rem;
